@@ -47,9 +47,6 @@ class Profile(models.Model):
     o2cm_link = models.URLField(blank=True, null=True)
     summary = models.CharField(max_length=500, blank=True, null=True)
     description = models.CharField(max_length=1000, blank=True, null=True)
-    picture = models.FileField(upload_to='profile_picture',
-                               blank=True,
-                               null=True)
     time_commitment = models.IntegerField()
     affiliated_institute = models.CharField(max_length=255,
                                             blank=True,
@@ -96,6 +93,16 @@ class DanceStyle(models.Model):
         (OPEN_CHAMP, 'OPEN_CHAMP'),
     )
     level = models.IntegerField(choices=LEVEL_CHOICES)
+
+
+class ProfilePicture(models.Model):
+    """A specific picture for a profile."""
+    picture = models.FileField(upload_to='images')
+    profile = models.ForeignKey(
+        Profile,
+        related_name='pictures',
+        on_delete=models.CASCADE,
+    )
 
 
 class ProfileVideo(models.Model):
