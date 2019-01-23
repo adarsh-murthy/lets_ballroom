@@ -47,7 +47,7 @@ class Profile(models.Model):
     o2cm_link = models.URLField(blank=True, null=True)
     summary = models.CharField(max_length=500, blank=True, null=True)
     description = models.CharField(max_length=1000, blank=True, null=True)
-    picture = models.ImageField()
+    picture = models.FileField(upload_to='profile_picture')
     time_commitment = models.IntegerField()
     affiliated_institute = models.CharField(max_length=255,
                                             blank=True,
@@ -76,7 +76,7 @@ class DanceStyle(models.Model):
         (RHYTHM, 'Rhythm'),
         (SMOOTH, 'Smooth'),
     )
-    style = models.CharField(choices=STYLE_CHOICES)
+    style = models.CharField(max_length=30, choices=STYLE_CHOICES)
     NEWCOMER = 0
     BRONZE = 1
     SILVER = 2
@@ -100,11 +100,11 @@ class ProfileVideo(models.Model):
     """Uploaded video of a user."""
     profile = models.ForeignKey(
         Profile,
-        related_name='location',
+        related_name='video',
         on_delete=models.CASCADE,
     )
     video_link = models.URLField(blank=True, null=True)
-    video_file = models.FileField(blank=True, null=True)
+    video_file = models.FileField(upload_to='videos', blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
 
