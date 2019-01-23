@@ -47,7 +47,9 @@ class Profile(models.Model):
     o2cm_link = models.URLField(blank=True, null=True)
     summary = models.CharField(max_length=500, blank=True, null=True)
     description = models.CharField(max_length=1000, blank=True, null=True)
-    picture = models.FileField(upload_to='profile_picture')
+    picture = models.FileField(upload_to='profile_picture',
+                               blank=True,
+                               null=True)
     time_commitment = models.IntegerField()
     affiliated_institute = models.CharField(max_length=255,
                                             blank=True,
