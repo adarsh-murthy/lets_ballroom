@@ -8,36 +8,12 @@ competitions and contact them.
 
 ## Tables
 
-### Profile
-| Field | Type |
-| ---- | ----- |
-| user | FK to User |
-| Age | Integer |
-| Height | Integerfield |
-| How serious | Integer |
-| o2cm link | url |
-| videos | FK to Video |
-| Summary | Charfield |
-| Description | Textfield |
-| Profile picture | Imagefield |
-| style | Choice |
-| level | Integerfield |
-| location | choice of cities |
-| Time commitment | Float |
-| Affiliated university | Choice of Charfield |
-
-### Video
+### Location
 | Field | Type |
 | ----- | ---- |
-| link | url |
-| video file | Videofile |
-| description | Textfield|
-
-### UserCompetition
-| Field | Type |
-| ----- | ---- |
-| profile | FK to profile |
-| competition | FK to competition |
+| zip code | Integerfield |
+| city | Charfield |
+| street address | Charfield |
 
 ### Competition
 
@@ -47,6 +23,41 @@ competitions and contact them.
 | Location | address |
 | Registration link | url |
 | Competition home page | url |
+
+### Profile
+| Field | Type |
+| ---- | ----- |
+| user | FK to User |
+| DOB | Datetimefield |
+| height | Integerfield |
+| how serious | Integer |
+| o2cm link | url |
+| summary | Charfield |
+| description | Textfield |
+| profile picture | Imagefield |
+| time commitment | Float |
+| affiliated university | Choice of Charfield |
+
+### DanceStyle
+| Field | Type |
+| ----- | ---- |
+| profile | FK to profile |
+| style | Charfield |
+| level | Integerfield |
+
+### ProfileVideo
+| Field | Type |
+| ----- | ---- |
+| profile | FK to profile |
+| link | url |
+| video file | Videofile |
+| description | Textfield|
+
+### UserCompetition
+| Field | Type |
+| ----- | ---- |
+| profile | FK to profile |
+| competition | FK to competition |
 
 # API Layer
 
